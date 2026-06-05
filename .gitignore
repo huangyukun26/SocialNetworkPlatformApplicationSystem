@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Build and coverage output
+build/
+dist/
+coverage/
+
+# Runtime data and uploads
+Source/data/
+Source/social-network/server/uploads/
+*.log
+
+# Local documents and reports
+*.doc
+*.docx
+*.pdf
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+
+# OS/editor files
+.DS_Store
+Thumbs.db
