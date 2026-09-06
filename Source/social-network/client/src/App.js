@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { GlobalStyle } from './styles/globalStyles';
 import AppLayout from './components/Layout/AppLayout';
 import Home from './components/Home/Home';
@@ -82,7 +82,11 @@ function App() {
             </AppLayout>
           </PrivateRoute>
         } />
-        <Route path="/messages" element={<Messages />} />
+        <Route path="/messages" element={
+          <PrivateRoute>
+            <Messages />
+          </PrivateRoute>
+        } />
       </Routes>
     </Router>
   );
