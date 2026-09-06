@@ -1,4 +1,4 @@
-name: Deploy native social-network portfolio demo
+name: Build native social-network portfolio demo
 
 on:
   push:
@@ -7,11 +7,9 @@ on:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: "portfolio-demo-pages"
+  group: "portfolio-native-demo-build"
   cancel-in-progress: true
 
 jobs:
@@ -28,11 +26,6 @@ jobs:
           cache: npm
           cache-dependency-path: Source/social-network/client/package-lock.json
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: true
-
       - name: Install dependencies
         working-directory: Source/social-network/client
         run: npm ci
@@ -41,18 +34,8 @@ jobs:
         working-directory: Source/social-network/client
         run: npm run build
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
         with:
+          name: native-social-demo-dist
           path: Source/social-network/client/dist
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
