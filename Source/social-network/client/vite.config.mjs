@@ -16,6 +16,7 @@ const jsAsJsx = () => ({
 });
 
 export default defineConfig({
+  base: '/SocialNetworkPlatformApplicationSystem/',
   plugins: [jsAsJsx(), react()],
   optimizeDeps: {
     esbuildOptions: {
