@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { setupPortfolioDemo } from './demo/mockApi';
 
 // Portfolio demo mode keeps the original React UI/components and replaces only
@@ -15,5 +14,3 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-reportWebVitals();
